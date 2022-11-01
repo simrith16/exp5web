@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        function BMI_calc(){
+            var kg,cm="";
+            var bmi,result2=null;
+            kg=parseInt(document.getElementById('kg').value);
+            cm=parseInt(document.getElementById('cm').value);
+            BMI=Math.round((kg/((cm/100)*(cm/100))) * 10) / 10;
+            document.getElementById('result').innerHTML = BMI;
+            if (BMI<18){
+                result2="Underweight";
+            }
+            else if (BMI>17 && BMI<26){
+                result2="Normal";
+            }
+            else if (BMI>26 && BMI<31){
+                result2="Overweight";
+            }
+            else
+                result2="Obese";
+            document.getElementById('result2').innerHTML = result2;
+        }
+    </script>
+</head>
+<body style="border-style: solid;margin: 10px;padding: 10px;">
+    <div id="b" style="background-color:#35b8d6;color:white;"> 
+        <div style="font-size:20px;font-weight: bold;">Body mass index (BMI)<br><br>
+        </div>
+        <div>A measure of body fat in adults.</div>
+    </div>
+    <br><br>
+        Weight:
+        <br><input id="kg" type="text">  kg</input>
+        <br><p id="result" style="color: #35b8d6;float:right;font-size: 50px;"></p><br><br>
+        Height:
+        <br><input id ="cm" type="text" onkeyup="BMI_calc()">  cm</input>
+        <br><br><br><p id="result2" style="color: #35b8d6;margin-left: 90%;"></p><br>
+        <br><br>
+</body>
+</html>
